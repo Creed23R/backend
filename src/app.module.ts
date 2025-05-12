@@ -7,6 +7,7 @@ import { CategoriasModule } from './categorias/categorias.module';
 import { SubcategoriasModule } from './subcategorias/subcategorias.module';
 import { ProductosModule } from './productos/productos.module';
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
+import { ClientModule } from './client/client.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { CloudinaryModule } from './cloudinary/cloudinary.module';
     SubcategoriasModule,
     ProductosModule,
     CloudinaryModule,
+    ClientModule,
   ],
   controllers: [AppController],
   providers: [AppService, PrismaModule],
