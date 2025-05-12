@@ -13,9 +13,6 @@ export class ProductosService {
 
   async create(createProductoDto: CreateProductoDto, file: Express.Multer.File) {
 
-
-    console.log('createProductoDto', createProductoDto);
-
     try {
       let fotoUrl = null;
       if (file) {
@@ -197,11 +194,13 @@ export class ProductosService {
           moneda: updateProductoDto.moneda,              // Se pasa directamente el valor desestructurado
           valorVenta: updateProductoDto.valorVenta,
           tasaImpuesto: updateProductoDto.tasaImpuesto,
-          precioVenta: updateProductoDto.precioVenta
-        },
-        include: {
-          subcategoria: true,
-          stockRegistro: true
+          precioVenta: updateProductoDto.precioVenta,
+          stockRegistro: {
+            update: {
+              stockFisico: updateProductoDto?.stockFisico || 0,
+              stockComprometido: updateProductoDto?.stockComprometido || 0,
+            }
+          }
         },
         where: { id }
       })
