@@ -1,73 +1,44 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+📦 Backend API - Evaluación Técnica Mayo 2025
+👤 Postulante:
+Kevin Rios Nicho
+Cargo: Analista Programador de Web & Móviles
+Fecha de entrega: 12 de mayo de 2025
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## 📌 Descripción
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Este proyecto corresponde a la segunda etapa de evaluación técnica para A&R Gestión del Talento Humano. Se desarrolló una API RESTful con **NestJS** para la gestión de productos, categorías y subcategorías, incluyendo la carga de imágenes a **Cloudinary**.
 
-## Description
+---
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 🚀 Tecnologías usadas
 
-## Installation
+- NestJS (Framework principal)
+- TypeScript
+- PostgreSQL (base de datos relacional)
+- Prisma ORM
+- Cloudinary (almacenamiento de imágenes)
+- Multer (middleware para manejo de archivos)
 
-```bash
-$ npm install
-```
+- ## 📂 Funcionalidades principales
 
-## Running the app
+- CRUD de Productos, Categorías y Subcategorías
+- Subida de imágenes a Cloudinary para cada entidad
+- Asociación entre productos, subcategorías y categorías
+- Validaciones y estructura modular en NestJS
 
-```bash
-# development
-$ npm run start
+- ## 🌐 Despliegue
 
-# watch mode
-$ npm run start:dev
+La API fue desplegada exitosamente en **Railway**.  
+El entorno de producción se encuentra accesible mediante la siguiente URL:
 
-# production mode
-$ npm run start:prod
-```
+🔗 https://backend-production-9518.up.railway.app/  
 
-## Test
+Además:
 
-```bash
-# unit tests
-$ npm run test
+- Se configuró el archivo `.env` para manejar credenciales de la base de datos PostgreSQL y Cloudinary.
+- La base de datos PostgreSQL fue desplegada en **Railway**.
+- Prisma fue configurado para migraciones automáticas durante el build en producción.
 
-# e2e tests
-$ npm run test:e2e
+---
 
-# test coverage
-$ npm run test:cov
-```
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
