@@ -62,7 +62,7 @@ enum UnidadVenta {
   PAQ
   BOL
   BOT
-  BARn
+  BAR
   SCH
 }
 

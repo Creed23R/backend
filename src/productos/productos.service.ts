@@ -101,7 +101,9 @@ export class ProductosService {
             }
           }
         },
-        orderBy,
+        orderBy: {
+          createdAt: 'desc'
+        },
         skip,
         take: limit
       });

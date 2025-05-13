@@ -208,7 +208,7 @@ exports.UnidadVenta = exports.$Enums.UnidadVenta = {
   PAQ: 'PAQ',
   BOL: 'BOL',
   BOT: 'BOT',
-  BARn: 'BARn',
+  BAR: 'BAR',
   SCH: 'SCH'
 };
 
