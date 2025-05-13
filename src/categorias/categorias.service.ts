@@ -135,29 +135,64 @@ export class CategoriasService {
   async updateEstado(id: string) {
     try {
       const categoriaExists = await this.prisma.categoria.findUnique({
-        where: { id: id.toString() }
+        where: { id: id.toString() },
+        include: {
+          subcategorias: true
+        }
       });
+
       if (!categoriaExists) {
         throw new NotFoundException(`Categoría con ID ${id} no encontrada`);
       }
 
-      const estado = categoriaExists.estado === EstadoRegistro.A ? EstadoRegistro.I : EstadoRegistro.A;
+      const nuevoEstado = categoriaExists.estado === EstadoRegistro.A ? EstadoRegistro.I : EstadoRegistro.A;
 
-      const updatedCategoria = await this.prisma.categoria.update({
-        where: { id },
-        data: {
-          estado: estado,
+      const subcategoriaIds = categoriaExists.subcategorias.map(sub => sub.id);
+
+      const resultado = await this.prisma.$transaction(async (prisma) => {
+        const categoriaActualizada = await prisma.categoria.update({
+          where: { id },
+          data: {
+            estado: nuevoEstado,
+          }
+        });
+
+        if (subcategoriaIds.length > 0) {
+          await prisma.subcategoria.updateMany({
+            where: {
+              id: {
+                in: subcategoriaIds
+              }
+            },
+            data: {
+              estado: nuevoEstado
+            }
+          });
         }
+
+        if (subcategoriaIds.length > 0) {
+          await prisma.producto.updateMany({
+            where: {
+              subcategoriaId: {
+                in: subcategoriaIds
+              }
+            },
+            data: {
+              estado: nuevoEstado
+            }
+          });
+        }
+
+        return categoriaActualizada;
       });
 
-      return updatedCategoria;
+      return resultado;
     } catch (error) {
       if (error instanceof NotFoundException) {
         throw error;
       }
-      throw new InternalServerErrorException('Error al actualizar el estado de la categoría');
+      throw new InternalServerErrorException(`Error al actualizar el estado de la categoría y sus dependencias: ${error.message}`);
     }
   }
-
 
 }
